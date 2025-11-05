@@ -19,6 +19,7 @@ const autoPlayInterval = 5000;
 
 let currentIndex = 0;
 let autoPlayTimer;
+let modalCurrentIndex = 0;
 
 // Construir el path completo para cada imagen
 const imagePaths = carouselImages.map(img => `images/carrusel/${img}`);
@@ -33,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const img = document.createElement('img');
         img.src = src;
         img.alt = `Imagen ${index + 1}`;
-        img.addEventListener('click', () => openModal(src));
+        img.addEventListener('click', () => openModal(index));
         carouselContainer.appendChild(img);
     });
 
@@ -109,9 +110,15 @@ function stopAutoPlay() {
 function setupModal() {
     const modal = document.getElementById('imageModal');
     const closeBtn = document.querySelector('.modal-close');
+    const prevBtn = document.querySelector('.modal-prev');
+    const nextBtn = document.querySelector('.modal-next');
 
     // Cerrar modal con el botón X
     closeBtn.addEventListener('click', closeModal);
+
+    // Navegación en el modal
+    prevBtn.addEventListener('click', modalPrevImage);
+    nextBtn.addEventListener('click', modalNextImage);
 
     // Cerrar modal al hacer click fuera de la imagen
     modal.addEventListener('click', function(e) {
@@ -120,20 +127,27 @@ function setupModal() {
         }
     });
 
-    // Cerrar modal con la tecla ESC
+    // Navegación con teclado
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.classList.contains('show')) {
-            closeModal();
+        if (modal.classList.contains('show')) {
+            if (e.key === 'Escape') {
+                closeModal();
+            } else if (e.key === 'ArrowLeft') {
+                modalPrevImage();
+            } else if (e.key === 'ArrowRight') {
+                modalNextImage();
+            }
         }
     });
 }
 
-function openModal(imageSrc) {
+function openModal(imageIndex) {
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
 
+    modalCurrentIndex = imageIndex;
     modal.classList.add('show');
-    modalImg.src = imageSrc;
+    modalImg.src = imagePaths[modalCurrentIndex];
 
     // Prevenir scroll del body cuando el modal está abierto
     document.body.style.overflow = 'hidden';
@@ -145,4 +159,19 @@ function closeModal() {
 
     // Restaurar scroll del body
     document.body.style.overflow = 'auto';
+}
+
+function modalNextImage() {
+    modalCurrentIndex = (modalCurrentIndex + 1) % imagePaths.length;
+    updateModalImage();
+}
+
+function modalPrevImage() {
+    modalCurrentIndex = (modalCurrentIndex - 1 + imagePaths.length) % imagePaths.length;
+    updateModalImage();
+}
+
+function updateModalImage() {
+    const modalImg = document.getElementById('modalImage');
+    modalImg.src = imagePaths[modalCurrentIndex];
 }

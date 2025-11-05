@@ -42,6 +42,11 @@
     </nav>
 
     <main>
+        <section class="welcome">
+            <h2>Bienvenidos</h2>
+            <p>Bienvenidos a nuestra parroquia, un espacio de fe, comunidad y servicio.</p>
+        </section>
+
         <!-- Carrusel -->
         <div class="carousel-container">
             <div class="carousel">
@@ -59,30 +64,31 @@
                 <!-- Los indicadores se cargarán dinámicamente desde JavaScript -->
             </div>
         </div>
-
-        <section class="welcome">
-            <h2>Bienvenidos</h2>
-            <p>Bienvenidos a nuestra parroquia, un espacio de fe, comunidad y servicio.</p>
-        </section>
     </main>
 
     <!-- Modal para maximizar imagen -->
     <div id="imageModal" class="modal">
         <span class="modal-close">&times;</span>
+        <button class="modal-nav-btn modal-prev" aria-label="Anterior">
+            <i class="fas fa-chevron-left"></i>
+        </button>
         <img class="modal-content" id="modalImage">
+        <button class="modal-nav-btn modal-next" aria-label="Siguiente">
+            <i class="fas fa-chevron-right"></i>
+        </button>
     </div>
 
     <script src="js/carousel.js"></script>
 
     <footer>
         <div class="footer-top">
+        </div>
+        <div class="footer-bottom">
             <div class="footer-content">
                 <p><strong>Parroquia San Antonio de Padua</strong></p>
                 <p>Pensilvannia #228, Colonia Nápoles, C.P. 03810, Ciudad de México</p>
                 <p>&copy; 2025 Parroquia San Antonio de Padua. Todos los derechos reservados.</p>
             </div>
-        </div>
-        <div class="footer-bottom">
         </div>
     </footer>
 </body>
