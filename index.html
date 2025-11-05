@@ -1,13 +1,89 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="utf-8">
-  <title>Parroquia San Antonio de Padua, Nápoles, CDMX</title>
-  <base href="https://parroquiasanantoniodepadua.org/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="stylesheet" href="styles.91d79d422f2e52cdca8e.css"></head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parroquia San Antonio de Padua</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
 <body>
-  <app-root></app-root>
-<script src="runtime-es2015.66c79b9d36e7169e27b0.js" type="module"></script><script src="runtime-es5.66c79b9d36e7169e27b0.js" nomodule defer></script><script src="polyfills-es5.7ffa9dfd28fda61abf9c.js" nomodule defer></script><script src="polyfills-es2015.366bcebab23463fb1570.js" type="module"></script><script src="main-es2015.a2ccca0ee66a4d027909.js" type="module"></script><script src="main-es5.a2ccca0ee66a4d027909.js" nomodule defer></script></body>
+    <header>
+        <div class="header-content">
+            <div class="header-left">
+                <img src="images/logo_SAP_blanco_header.png" alt="Logo Parroquia San Antonio de Padua" class="logo">
+            </div>
+            <h1>Parroquia San Antonio de Padua</h1>
+            <div class="social-icons">
+                <a href="https://wa.me/525573697692" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.instagram.com/sanantoniopaduanapoles/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/share/1C6NXMHSbU/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="quienes-somos.html">¿Quiénes somos?</a></li>
+            <li><a href="grupos.html">Grupos</a></li>
+            <li><a href="formacion.html">Formación</a></li>
+            <li><a href="ministerios-apostolados.html">Ministerios y Apostolados</a></li>
+            <li><a href="celebraciones.html">Celebraciones</a></li>
+            <li><a href="horarios.html">Horarios</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Carrusel -->
+        <div class="carousel-container">
+            <div class="carousel">
+                <button class="carousel-btn prev" aria-label="Anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="carousel-images">
+                    <!-- Las imágenes se cargarán dinámicamente desde JavaScript -->
+                </div>
+                <button class="carousel-btn next" aria-label="Siguiente">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="carousel-dots">
+                <!-- Los indicadores se cargarán dinámicamente desde JavaScript -->
+            </div>
+        </div>
+
+        <section class="welcome">
+            <h2>Bienvenidos</h2>
+            <p>Bienvenidos a nuestra parroquia, un espacio de fe, comunidad y servicio.</p>
+        </section>
+    </main>
+
+    <!-- Modal para maximizar imagen -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script src="js/carousel.js"></script>
+
+    <footer>
+        <div class="footer-top">
+            <div class="footer-content">
+                <p><strong>Parroquia San Antonio de Padua</strong></p>
+                <p>Pensilvannia #228, Colonia Nápoles, C.P. 03810, Ciudad de México</p>
+                <p>&copy; 2025 Parroquia San Antonio de Padua. Todos los derechos reservados.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+        </div>
+    </footer>
+</body>
 </html>
