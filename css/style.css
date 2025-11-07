@@ -84,6 +84,23 @@ header {
 .navbar {
     background-color: rgb(235, 148, 0);
     padding: 0;
+    position: relative;
+}
+
+.menu-toggle {
+    display: none;
+    background: rgb(235, 148, 0);
+    border: none;
+    color: #6e3e24;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 1rem;
+    transition: all 0.3s;
+}
+
+.menu-toggle:hover {
+    background: rgb(243, 171, 68);
+    color: rgb(46, 27, 17);
 }
 
 .navbar ul {
@@ -760,8 +777,24 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1000;
+    }
+
     .navbar ul {
         flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+
+    .navbar ul.active {
+        max-height: 500px;
     }
 
     .navbar a {

@@ -29,6 +29,9 @@
     </header>
 
     <nav class="navbar">
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
         <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="quienes-somos.html" class="active">¿Quiénes somos?</a></li>
@@ -80,8 +83,8 @@
                 </div>
 
                 <div class="priest-card">
-                    <img src="images/20250228_185416.avif" alt="Fray Gabriel OFM">
-                    <h4>Fray Gabriel OFM</h4>
+                    <img src="images/20250228_185416.avif" alt="Fray Gabriel Mancera Anaya OFM">
+                    <h4>Fray Gabriel Mancera Anaya OFM</h4>
                     <p>Nací el 8 de febrero de 1996 en el Distrito Federal.</p>
                     <p>Ingresé al seminario franciscano en 2014. Realicé el aspirantado y el postulantado en Coroneo, y tomé el hábito el 13 de julio de 2016 en el Santuario de la Virgen de El Pueblito, Querétaro.</p>
                     <p>Hice mi primera profesión el 12 de julio de 2017 y cursé estudios de Filosofía en el Colegio de la Santa Cruz, en Querétaro, de 2017 a 2020.</p>
@@ -104,5 +107,38 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navbarMenu = document.querySelector('.navbar ul');
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    navbarMenu.classList.toggle('active');
+                    const icon = this.querySelector('i');
+                    if (navbarMenu.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+
+                // Close menu when clicking on a link
+                const navLinks = document.querySelectorAll('.navbar a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        navbarMenu.classList.remove('active');
+                        const icon = menuToggle.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
